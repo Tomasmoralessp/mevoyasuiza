@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Colores personalizados para tareas opcionales */
+  .bg-amber-25 {
+    background-color: #fffbeb;
+  }
+  
+  .bg-yellow-25 {
+    background-color: #fefce8;
+  }
+}
+
+/* Custom focus styles */
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: rgb(59 130 246);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(243, 244, 246, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* Badge animations */
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 0 25px rgba(245, 158, 11, 0.4);
+  }
+}
+
+/* Animación especial para tareas opcionales */
+@keyframes optional-reveal {
+  from {
+    opacity: 0.3;
+    transform: scale(0.95);
+    filter: blur(1px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes golden-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-badge-glow {
+  animation: badge-glow 2s ease-in-out infinite;
+}
+
+.animate-optional-reveal {
+  animation: optional-reveal 0.6s ease-out;
+}
+
+.animate-golden-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(245, 158, 11, 0.1) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: golden-shimmer 3s infinite;
+}
+
+/* Better focus indicators */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Improved button hover states */
+button:hover {
+  transform: translateY(-0.5px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Card hover effects - more subtle */
+.card-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Completion effects - more subtle */
+.completion-glow {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+/* Scale hover for completed tasks */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Apple-like glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Subtle shadows */
+.shadow-subtle {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-subtle-lg {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Efectos especiales para tareas opcionales */
+.optional-glow {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 0 40px rgba(245, 158, 11, 0.1);
+}
+
+.optional-hover:hover {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2), 0 0 50px rgba(245, 158, 11, 0.15);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Gradientes personalizados para tareas opcionales */
+.bg-optional-gradient {
+  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 50%, #fde68a 100%);
+}
+
+.bg-optional-gradient-hover {
+  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 50%, #f59e0b 100%);
+}
+
+/* Estilos mejorados para badges */
+.badge-floating {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.badge-floating:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Efectos especiales para tareas opcionales en estado de reposo */
+.optional-card-resting {
+  opacity: 0.6;
+  filter: saturate(0.7);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.optional-card-resting:hover {
+  opacity: 1;
+  filter: saturate(1);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Efecto de revelación gradual para tareas opcionales */
+.optional-card-reveal {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.optional-card-reveal:hover {
+  animation: optional-reveal 0.6s ease-out;
+}
